@@ -90,10 +90,25 @@
 		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/deps/glad_gl.c">
 			<Option target="learnopengl"/>
 		</Unit>
-		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/CubeTest.cpp">
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Activity.cpp">
 			<Option target="learnopengl"/>
 		</Unit>
-		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/CubeTest.h">
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Activity.h">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Camera.h">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/CameraActivity.cpp">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/CameraActivity.h">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/CubeActivity.cpp">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/CubeActivity.h">
 			<Option target="learnopengl"/>
 		</Unit>
 		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Shader.cpp">
@@ -102,19 +117,16 @@
 		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Shader.h">
 			<Option target="learnopengl"/>
 		</Unit>
-		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Test.h">
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/ShapeActivity.cpp">
 			<Option target="learnopengl"/>
 		</Unit>
-		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Test1.cpp">
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/ShapeActivity.h">
 			<Option target="learnopengl"/>
 		</Unit>
-		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Test1.h">
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/TextureActivity.cpp">
 			<Option target="learnopengl"/>
 		</Unit>
-		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/TextureTest.cpp">
-			<Option target="learnopengl"/>
-		</Unit>
-		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/TextureTest.h">
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/TextureActivity.h">
 			<Option target="learnopengl"/>
 		</Unit>
 		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/main.cpp">

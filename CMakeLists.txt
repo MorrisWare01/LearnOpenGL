@@ -3,16 +3,21 @@ project(learnopengl)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "-framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo")
-set(GLAD_GL "deps/glad/gl.h" "deps/glad_gl.c")
 
 include_directories(include)
 include_directories(deps)
 
 link_directories(lib)
 
-add_executable(learnopengl src/main.cpp ${GLAD_GL}
-        src/Shader.h src/Shader.cpp src/Test.h src/Test1.cpp src/Test1.h src/TextureTest.cpp src/TextureTest.h
-        src/CubeTest.cpp src/CubeTest.h
-        )
+add_executable(
+        learnopengl
+        src/main.cpp deps/glad/gl.h deps/glad_gl.c
+        src/Shader.h src/Shader.cpp src/Camera.h
+        src/Activity.cpp src/Activity.h
+        src/ShapeActivity.cpp src/ShapeActivity.h
+        src/TextureActivity.cpp src/TextureActivity.h
+        src/CubeActivity.cpp src/CubeActivity.h
+        src/CameraActivity.cpp src/CameraActivity.h
+)
 
 target_link_libraries(learnopengl libglfw3.a)

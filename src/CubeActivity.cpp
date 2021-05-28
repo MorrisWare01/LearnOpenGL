@@ -2,39 +2,16 @@
 // Created by Ware Morris on 2021/5/28.
 //
 
-#include "CubeTest.h"
-
+#include "CubeActivity.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <GLFW/glfw3.h>
 
 #include "stb_image.h"
 
-void CubeTest::loadTexture(unsigned int *texture, const std::string &path, int format) {
-    stbi_set_flip_vertically_on_load(true);
-
-    int width, height, nrChannels;
-    unsigned char *data = stbi_load(path.c_str(), &width, &height, &nrChannels, 0);
-    glGenTextures(1, texture);
-    glBindTexture(GL_TEXTURE_2D, *texture);
-    // 为当前绑定的纹理对象设置环绕、过滤方式
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // 加载并生成纹理
-    if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    } else {
-        std::cout << "Failed to load texture" << std::endl;
-    }
-    stbi_image_free(data);
-}
-
-CubeTest::CubeTest()
-        : shader(Shader("../shader/cube_test.vs", "../shader/cube_test.fs")) {
+void CubeActivity::onAttach(GLFWwindow *window) {
+    Activity::onAttach(window);
+    shader = new Shader("../shader/cube_test.vs", "../shader/cube_test.fs");
     float vertices[] = {
             -0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
             0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
@@ -94,19 +71,17 @@ CubeTest::CubeTest()
     loadTexture(&texture1, "../texture/container.jpg", GL_RGB);
     loadTexture(&texture2, "../texture/awesomeface.png", GL_RGBA);
 
-    shader.use();
-    shader.setInt("texture1", 0);
-    shader.setInt("texture2", 1);
-
+    shader->use();
+    shader->setInt("texture1", 0);
+    shader->setInt("texture2", 1);
 }
 
-CubeTest::~CubeTest() {
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
+void CubeActivity::processInput() {
+    Activity::processInput();
 }
 
-
-void CubeTest::render() {
+void CubeActivity::render() {
+    Activity::render();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // bind textures on corresponding texture units
@@ -116,14 +91,14 @@ void CubeTest::render() {
     glBindTexture(GL_TEXTURE_2D, texture2);
 
     // render container
-    shader.use();
+    shader->use();
 
     glm::mat4 view(1.0f);
     view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
     glm::mat4 projection(1.0f);
     projection = glm::perspective(glm::radians(45.0f), 800 * 1.0f / 600, 0.1f, 100.0f);
-    glUniformMatrix4fv(glGetUniformLocation(shader.ID, "view"), 1, GL_FALSE, glm::value_ptr(view));
-    glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+    glUniformMatrix4fv(glGetUniformLocation(shader->ID, "view"), 1, GL_FALSE, glm::value_ptr(view));
+    glUniformMatrix4fv(glGetUniformLocation(shader->ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
     glBindVertexArray(VAO);
     glEnable(GL_DEPTH_TEST);
@@ -145,8 +120,35 @@ void CubeTest::render() {
         model = glm::translate(model, cubePositions[i]);
         float angle = 20 * i + glfwGetTime() * glm::radians(50.0f);
         model = glm::rotate(model, angle, glm::vec3(1.0f, 0.3f, 0.5f));
-        shader.setMat4("model", model);
+        shader->setMat4("model", model);
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
     }
+}
+
+CubeActivity::~CubeActivity() {
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+}
+
+void CubeActivity::loadTexture(unsigned int *texture, const std::string &path, int format) {
+    stbi_set_flip_vertically_on_load(true);
+
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load(path.c_str(), &width, &height, &nrChannels, 0);
+    glGenTextures(1, texture);
+    glBindTexture(GL_TEXTURE_2D, *texture);
+    // 为当前绑定的纹理对象设置环绕、过滤方式
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // 加载并生成纹理
+    if (data) {
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data);
 }

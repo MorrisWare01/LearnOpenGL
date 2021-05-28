@@ -1,18 +1,17 @@
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-#include "Test1.h"
-#include "TextureTest.h"
-#include "CubeTest.h"
+#include "ShapeActivity.h"
+#include "TextureActivity.h"
+#include "CubeActivity.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+
+#include "stb_image.h"
+#include "CameraActivity.h"
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
-}
-
-void processInput(GLFWwindow *window) {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
 }
 
 int main() {
@@ -37,15 +36,16 @@ int main() {
     glViewport(0, 0, 800, 600);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    CubeTest test;
+//    Activity activity;
+//    ShapeActivity activity;
+//    TextureActivity activity;
+//    CubeActivity activity;
+    CameraActivity activity;
 
+    activity.attach(window);
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        test.render();
+        activity.processInput();
+        activity.render();
 
         glfwSwapBuffers(window);
         glfwPollEvents();

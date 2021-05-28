@@ -2,10 +2,10 @@
 // Created by Ware Morris on 2021/5/28.
 //
 
-#include "Test1.h"
+#include "ShapeActivity.h"
 
-Test1::Test1()
-        : _shader(Shader("../shader/test1.vs", "../shader/test1.fs")) {
+void ShapeActivity::onAttach(GLFWwindow *window) {
+    shader = new Shader("../shader/test1.vs", "../shader/test1.fs");
 
 //    float vertices[] = {
 //            -0.5f, -0.5f, 0.0f,
@@ -38,21 +38,20 @@ Test1::Test1()
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *) 0);
     glEnableVertexAttribArray(0);
-
-    glBindVertexArray(0);
 }
 
-Test1::~Test1() {
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-    glDeleteBuffers(1, &EBO);
-}
-
-void Test1::render() {
-    _shader.use();
+void ShapeActivity::render() {
+    Activity::render();
+    shader->use();
     glBindVertexArray(VAO);
 //        glDrawArrays(GL_TRIANGLES, 0, 3);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
+}
+
+ShapeActivity::~ShapeActivity() {
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteBuffers(1, &EBO);
 }
