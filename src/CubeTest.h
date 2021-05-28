@@ -2,17 +2,17 @@
 // Created by Ware Morris on 2021/5/28.
 //
 
-#ifndef LEARNOPENGL_TEXTURETEST_H
-#define LEARNOPENGL_TEXTURETEST_H
+#ifndef LEARNOPENGL_CUBETEST_H
+#define LEARNOPENGL_CUBETEST_H
 
 #include "Test.h"
 
-class TextureTest : Test {
+class CubeTest : Test {
 
 public:
-    TextureTest();
+    CubeTest();
 
-    virtual ~TextureTest();
+    virtual ~CubeTest();
 
     void render() override;
 
@@ -24,7 +24,6 @@ private:
     unsigned int texture2;
     unsigned int VAO;
     unsigned int VBO;
-    unsigned int EBO;
 };
 
 

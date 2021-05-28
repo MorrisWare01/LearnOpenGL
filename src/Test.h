@@ -5,6 +5,8 @@
 #ifndef LEARNOPENGL_TEST_H
 #define LEARNOPENGL_TEST_H
 
+#include "Shader.h"
+#include "glad/gl.h"
 
 class Test {
 

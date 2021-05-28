@@ -3,7 +3,6 @@
 //
 
 #include "Test1.h"
-#include "glad/gl.h"
 
 Test1::Test1()
         : _shader(Shader("../shader/test1.vs", "../shader/test1.fs")) {

@@ -6,7 +6,6 @@
 #define LEARNOPENGL_TEST1_H
 
 #include "Test.h"
-#include "Shader.h"
 
 class Test1 : Test {
 

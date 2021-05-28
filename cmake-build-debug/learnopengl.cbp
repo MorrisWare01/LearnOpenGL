@@ -90,6 +90,12 @@
 		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/deps/glad_gl.c">
 			<Option target="learnopengl"/>
 		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/CubeTest.cpp">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/CubeTest.h">
+			<Option target="learnopengl"/>
+		</Unit>
 		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Shader.cpp">
 			<Option target="learnopengl"/>
 		</Unit>
