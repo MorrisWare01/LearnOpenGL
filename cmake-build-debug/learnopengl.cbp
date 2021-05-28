@@ -90,7 +90,28 @@
 		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/deps/glad_gl.c">
 			<Option target="learnopengl"/>
 		</Unit>
-		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/main.cpp">
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Shader.cpp">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Shader.h">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Test.h">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Test1.cpp">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/Test1.h">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/TextureTest.cpp">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/TextureTest.h">
+			<Option target="learnopengl"/>
+		</Unit>
+		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/src/main.cpp">
 			<Option target="learnopengl"/>
 		</Unit>
 		<Unit filename="/Users/waremorris/Program/opengl/learnopengl/CMakeLists.txt">

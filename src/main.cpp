@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include "Test1.h"
+#include "TextureTest.h"
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -34,7 +35,8 @@ int main() {
     glViewport(0, 0, 800, 600);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    Test1 test1;
+//    Test1 test1;
+    TextureTest textureTest;
 
     while (!glfwWindowShouldClose(window)) {
         processInput(window);
@@ -42,7 +44,8 @@ int main() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        test1.render();
+//        test1.render();
+        textureTest.render();
 
         glfwSwapBuffers(window);
         glfwPollEvents();

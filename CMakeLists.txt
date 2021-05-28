@@ -10,6 +10,6 @@ include_directories(deps)
 
 link_directories(lib)
 
-add_executable(learnopengl src/main.cpp ${GLAD_GL} src/Shader.h src/Shader.cpp src/Test.h src/Test1.cpp src/Test1.h)
+add_executable(learnopengl src/main.cpp ${GLAD_GL} src/Shader.h src/Shader.cpp src/Test.h src/Test1.cpp src/Test1.h src/TextureTest.cpp src/TextureTest.h)
 
 target_link_libraries(learnopengl libglfw3.a)
